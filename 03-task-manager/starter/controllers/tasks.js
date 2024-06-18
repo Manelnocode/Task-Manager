@@ -13,6 +13,13 @@ const createTask = (req, res) => {
 }
 
 // En este caso estamos solicitando informacion sobre la id de la ruta seteada :id por ejemplo /tasks/123
+/* esta es la respuesta que obtenemos: 
+{
+    "id": "hello"
+}
+*/
+
+
 const getTask = (req, res) => {
     res.json({id:req.params.id})
 }
