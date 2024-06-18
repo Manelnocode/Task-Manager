@@ -1,10 +1,10 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 const tasks = require('./routes/tasks')
-const connectDB = require('./db/connect');
+const connectDB = require('./db/connect')
 const controller = require('./controllers/tasks')
-require('dotenv').config();
-const port = 5000;
+require('dotenv').config()
+const port = 3000;
 
 //midleware
 
@@ -14,7 +14,7 @@ app.use(express.json())
 
 //routes
 
-app.use('api/v1/tasks', tasks)
+app.use('/api/v1/tasks', tasks)
 
 
 

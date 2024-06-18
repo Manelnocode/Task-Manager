@@ -1,16 +1,20 @@
 // La carpeta de controladores, maneja varias funciones para cada ruta que sera definida en la carpeta de routes
 
+// res es el objeto de respuesta que se usa para enviar la respuesta al cliente
+// req es el objeto de la solicitud que contiene informacion sobre la solicitud HTTP entrante.
+
 
 const getAllTasks = (req, res) => {
     res.send('get all tasks')
 }
 
 const createTask = (req, res) => {
-    res.send('create task')
+    res.json(req.body)
 }
 
+// En este caso estamos solicitando informacion sobre la id de la ruta seteada :id por ejemplo /tasks/123
 const getTask = (req, res) => {
-    res.send('create task')
+    res.json({id:req.params.id})
 }
 
 const updateTask = (req, res) => {

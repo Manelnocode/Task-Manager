@@ -5,13 +5,22 @@
 // Los routers son reutilizables
 
 
-
-
 const express = require('express');
 const router = express.Router();
 
-const { getAllTasks } = require('../controllers/tasks');  
+const { getAllTasks,createTask,getTask,updateTask,deleteTask } = require('../controllers/tasks');  
 
-router.route('/').get(getAllTasks);  
+// syntax para router.route = router.route('/ruta).metodoGTTP(callback)
+// Define un metodo HTTP com get,post etc y pasa una funcion callback que manejara la logica de la solictud/respuesta
+
+// primero definimos la ruta en donde luego vamos a setear el metodo y luego la funcion callback
+
+router.route('/')
+.get(getAllTasks).post(createTask)
+
+router.route('/:id')
+.get(getTask)
+.patch(updateTask)
+.delete(deleteTask)
 
 module.exports = router;
