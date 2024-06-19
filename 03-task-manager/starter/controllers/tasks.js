@@ -1,24 +1,18 @@
-// La carpeta de controladores, maneja varias funciones para cada ruta que sera definida en la carpeta de routes
+const Task = require('../models/task')
 
-// res es el objeto de respuesta que se usa para enviar la respuesta al cliente
-// req es el objeto de la solicitud que contiene informacion sobre la solicitud HTTP entrante.
+
 
 
 const getAllTasks = (req, res) => {
     res.send('get all tasks')
 }
 
-const createTask = (req, res) => {
-    res.json(req.body)
-}
+// porque en el caso siguiente utilizamos una funcion async? El motivo es porque estamos interactuando con una base de datos  mediatne mongoose , y las operaciones de bases de datos son inheremente operaciones i/o (input,output) que pueden llevar tiempo en completarse.
 
-// En este caso estamos solicitando informacion sobre la id de la ruta seteada :id por ejemplo /tasks/123
-/* esta es la respuesta que obtenemos: 
-{
-    "id": "hello"
+const createTask = async (req, res) => {
+    const task = await Task.create(req.body)
+    res.status(200).json({task})
 }
-*/
-
 
 const getTask = (req, res) => {
     res.json({id:req.params.id})
