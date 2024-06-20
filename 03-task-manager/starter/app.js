@@ -17,6 +17,7 @@ app.use(express.json())
 
 app.use('/api/v1/tasks', tasks)
 
+// Este midlleware de url no encontrada, solo se ejecutara si la ruta no es cualquiera de las que estan difinidas arriba. Porque? Porque en express se ejecutan las solicitudes de arriba a abajo y en el caso de middleware, si ya hay una ruta encontrada, no pasara a analizar al siguiente en la cola.
 app.use(notFound)
 
 
