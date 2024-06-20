@@ -5,6 +5,7 @@ const connectDB = require('./db/connect')
 const controller = require('./controllers/tasks')
 require('dotenv').config()
 const port = 3000;
+const notFound = require('./middleware/not-found')
 
 //midleware
 app.use(express.static('./public'))
@@ -16,8 +17,10 @@ app.use(express.json())
 
 app.use('/api/v1/tasks', tasks)
 
+app.use(notFound)
 
 
+// Server and database connection
 
 const start = async () => {
   try {
