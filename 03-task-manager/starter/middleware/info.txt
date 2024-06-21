@@ -1,0 +1,2 @@
+El middleware no son mas que funciones que corren cuando hay una peticion.
+Podemos modificar las peticiones antes de que se procesen.
