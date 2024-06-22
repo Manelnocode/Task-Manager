@@ -1,0 +1,9 @@
+// Tomamos nuestro contralador como argumento y como devolvemos una funcion, tenemos acceso a req,res,next y seteamos el try catch block. Como nuestro controlador sigue siendo una funcion async y por lo tanto devuelve una promesa, seteamos el await en el try.
+// asyncWrapper es una función que recibe otra función (fn) como argumento y retorna una nueva función asíncrona que maneja los errores de forma centralizada.
+
+/* Beneficios de asyncWrapper
+Código Más Limpio: No necesitas escribir bloques try...catch en cada una de tus funciones asíncronas.
+Manejo Centralizado de Errores: Todos los errores se manejan de manera uniforme, pasando los errores al middleware de manejo de errores.
+Reutilización: Puedes usar asyncWrapper para envolver cualquier función asíncrona, haciéndolo una solución reutilizable y consistente.
+En resumen, asyncWrapper es un patrón que ayuda a manejar de manera efectiva los errores en funciones asíncronas en aplicaciones Express, haciendo el código más limpio y manteniendo una gestión de errores centralizada y coherente.
+*/
